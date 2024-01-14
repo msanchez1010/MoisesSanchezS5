@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoisesSanchezS5.Views.vPrincipal"
+             Title="vPrincipal">
+
+    <VerticalStackLayout Padding="28" Spacing="25">
+
+        <Label 
+            Text="BASE DE DATOS SQLITE"
+            TextColor="Red"
+            FontSize="20"
+            HorizontalTextAlignment="Center"/>
+
+        <Entry x:Name="txtName"
+               Placeholder="ingrese su nombre"/>
+
+        <Grid RowSpacing="1" ColumnSpacing="1" Padding="6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnInsertar"
+                    Text="Insertar Persona"
+                    Clicked="btnInsertar_Clicked"
+                    Grid.Row="0"
+                    Grid.Column="0"/>
+
+            <Label x:Name="statusMessage"
+                   TextColor="red"
+                   Grid.Row="1"
+                   Grid.Column="0"/>
+
+            <Button x:Name="btnActualizar"
+                    Text="Actualizar persona"
+                    Clicked="btnActualizar_Clicked"
+                    IsEnabled="False"
+                    Grid.Row="2"
+                    Grid.Column="0"/>
+
+            <Label x:Name="statusMessage2"
+                   TextColor="red"
+                   Grid.Row="3"
+                   Grid.Column="0"/>
+
+            <Button x:Name="btnMostrar"
+                    Text="Mostrar Personas"
+                    Clicked="btnMostrar_Clicked"
+                    Grid.Row="4"
+                    Grid.Column="0"/>
+
+            <CollectionView x:Name="ListaPersona"
+                            Grid.Row="5"
+                            Grid.Column="0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="0,0,0,5" Padding="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="2*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding Id}"
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
+
+                                <Label Text="{Binding Name}"
+                                   Grid.Row="0"
+                                   Grid.Column="1"/>
+
+                                <Button x:Name="btnEditar"
+                                    Text="Editar"
+                                    Clicked="btnEditar_Clicked"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    TextColor="blue"
+                                    BackgroundColor="Transparent" 
+                                    BorderWidth="0"/>
+
+                                <Button x:Name="btnEliminar"
+                                    Text="Eliminar"
+                                    Clicked="btnEliminar_Clicked"
+                                    Grid.Row="1"
+                                    Grid.Column="6"
+                                    TextColor="red"
+                                    BackgroundColor="Transparent" 
+                                    BorderWidth="0"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
